@@ -37,7 +37,27 @@ ll pow(ll base, ll exp, ll mod) {
 */
 
 void solve(){
+    int n; cin>>n;
+    vector<ll> v(n+2);
+    for(int i=1;i<=n;i++) cin>>v[i];
 
+    vector<ll> pref(n+2),suf(n+2);
+
+    for(int i=1;i<=n;i++){
+        pref[i] = max(pref[i-1],v[i]+i);
+    }
+
+    suf[n] = v[n]-n;
+    for(int i=n-1;i>=1;i--){
+        suf[i] = max(suf[i+1],v[i]-i);
+    }
+
+    ll ans = 0;
+    for(int i=2;i<=n-1;i++){
+        ans = max(ans,v[i] + pref[i-1] + suf[i+1]);
+    }
+
+    cout<<ans<<'\n';
 }
 
 int main(){
