@@ -37,17 +37,44 @@ ll pow(ll base, ll exp, ll mod) {
 */
 
 void solve(){
+    int n; cin>>n;
 
+    int c1 = 0;
+    vector<int> v(n);
+    for(int &x : v){
+        cin>>x;
+        if(x == 1) c1++;
+    }
+
+    if(c1 == n){
+        cout<<0<<'\n';
+        return;
+    }
+
+    if(c1){
+        cout<<n-c1<<'\n';
+        return;
+    }
+
+    int mn = INT_MAX;
+    for(int i=0;i<n;i++){
+        int g = v[i];
+        for(int j=1;i+j<n;j++){
+            g = __gcd(g,v[i+j]);
+            if(g == 1){
+                mn = min(mn,j);
+            }
+        }
+    }
+
+    cout<<(mn == INT_MAX ? -1 : mn + n-1)<<'\n';
 }
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-
-    cout<<__gcd(0,0)<<'\n';
-
-    int t; cin>>t;
-    while(t--) solve();
+    
+    solve();
 
     return 0;
 }

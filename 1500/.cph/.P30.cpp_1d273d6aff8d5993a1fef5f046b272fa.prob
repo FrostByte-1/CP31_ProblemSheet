@@ -1,0 +1,1 @@
+{"name":"Local: P30","url":"d:\\C++ projects\\CP31\\1500\\P30.cpp","tests":[{"id":1766753757915,"input":"3\n1 2\n2 3\n4 5\n","output":"YES"},{"id":1766753766305,"input":"4\n1 2\n2 3\n2 3\n1 2\n","output":"NO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C++ projects\\CP31\\1500\\P30.cpp","group":"local","local":true}
