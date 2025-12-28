@@ -37,26 +37,19 @@ ll pow(ll base, ll exp, ll mod) {
 */
 
 void solve(){
-    int n; n = 3;
+    string s; cin>>s;
 
-    vector<int> v(8);
-    for(int i=0;i<8;i++){
-        v[i] = i;
+    int cy = 0,cn = 0;
+    for(char c : s){
+        if(c == 'Y') cy++;
+        else cn++;
     }
 
-    do{
-        int sum = 0,c = v[0];
-        for(int i=0;i<(1 << n);i++){
-            c &= v[i];
-            sum += __builtin_popcount(c);
-        }
-
-        if(sum == 7){
-            cout<<sum<<'\n';
-            for(auto x : v) cout<<x<<' '; cout<<'\n';
-            break;
-        }
-    }while(next_permutation(v.begin(),v.end()));
+    if(cn == s.size() || cy == 1){
+        cout<<"YES\n";
+    }else{
+        cout<<"NO\n";
+    }
 }
 
 int main(){
