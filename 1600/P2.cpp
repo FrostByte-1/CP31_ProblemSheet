@@ -92,24 +92,7 @@ ll pow(ll base, ll exp, ll mod) {
 */
 
 void solve(){
-    int n; cin>>n;
 
-    int c0 = 0,c1 = 0;
-    for(int i=0;i<n;i++){
-        int x; cin>>x;
-
-        if(x == 0) c0++;
-        else if(x == 1) c1++;
-    }
-    ll ans = 1;
-
-    while(c0--){
-        ans *= 2ll;
-    }
-
-    ans *= 1ll*c1;
-
-    cout<<ans<<'\n'; // pow(n,k) will give output in 2e10 format which is not wanted
 }
 
 int main(){
