@@ -65,7 +65,7 @@ public:
 #define ll long long 
 #define all(x) (x).begin(),(x).end()
 
-const ll mod = 1e9+7;
+const ll mod = 1e9+7; //998244353;
 ll pow(ll base, ll exp, ll mod) {
     ll result = 1;
     while (exp > 0) {
@@ -92,24 +92,7 @@ ll pow(ll base, ll exp, ll mod) {
 */
 
 void solve(){
-    int n; cin>>n;
 
-    int c0 = 0,c1 = 0;
-    for(int i=0;i<n;i++){
-        int x; cin>>x;
-
-        if(x == 0) c0++;
-        else if(x == 1) c1++;
-    }
-    ll ans = 1;
-
-    while(c0--){
-        ans *= 2ll;
-    }
-
-    ans *= 1ll*c1;
-
-    cout<<ans<<'\n'; // pow(n,k) will give output in 2e10 format which is not wanted
 }
 
 int main(){
