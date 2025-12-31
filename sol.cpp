@@ -93,6 +93,25 @@ ll pow(ll base, ll exp, ll mod) {
 
 void solve(){
 
+    int lo = 1,hi = 999,mid1,mid2;
+    while(hi > lo + 1){
+        mid1 = lo + (hi - lo)/3;
+        mid2 = lo + 2*(hi - lo)/3;
+
+        cout<<"? "<<mid1<<" "<<mid2<<endl;
+        int x; cin>>x;
+
+        if(x == (mid1+1)*(mid2+1)){
+            hi = mid1;
+        }else if(x == (mid1)*(mid2+1)){
+            lo = mid1;
+            hi = mid2;
+        }else{
+            lo = mid2;
+        }
+    }
+
+    cout<<"! "<<hi<<endl;
 }
 
 int main(){
