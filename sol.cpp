@@ -92,7 +92,7 @@ ll pow(ll base, ll exp, ll mod) {
 */
 
 void solve(){
-    
+
 }
 
 int main(){
