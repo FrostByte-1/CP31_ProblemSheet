@@ -90,9 +90,45 @@ ll pow(ll base, ll exp, ll mod) {
 /*
 
 */
+const int N = 2e5 + 5;
+vector<int> g[N];
+vector<int> done(N),dist(N);
+
+void dfs(int s,int d){
+    dist[s] = d;
+    done[s] = 1;
+
+    for(auto child : g[s]){
+        if(done[child]) continue;
+
+        dfs(child,d+1);
+    }
+}
 
 void solve(){
+    int n; cin>>n;
 
+    for(int i=0;i<n-1;i++){
+        int u,v; cin>>u>>v;
+
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+
+    dfs(1,0);
+
+    vector<int> count(n+1);
+    for(int i=1;i<=n;i++){
+        cout<<i<<" "<<dist[i]<<'\n';
+        count[dist[i]]++;
+    }
+
+    int mx = 0;
+    for(int i=0;i<n;i++){
+        // cout<<i<<" "<<count[i]<<'\n';
+    }
+
+    cout<<mx<<'\n';
 }
 
 int main(){
