@@ -90,53 +90,47 @@ ll pow(ll base, ll exp, ll mod) {
 /*
 
 */
-const int N = 2e5 + 5;
-vector<int> g[N];
-vector<int> done(N),dist(N);
-
-void dfs(int s,int d){
-    dist[s] = d;
-    done[s] = 1;
-
-    for(auto child : g[s]){
-        if(done[child]) continue;
-
-        dfs(child,d+1);
-    }
-}
 
 void solve(){
-    int n; cin>>n;
+    string s; cin>>s;
 
-    for(int i=0;i<n-1;i++){
-        int u,v; cin>>u>>v;
+    int n = s.size();
+    vector<array<int,26> > pref(n+1);
 
-        g[u].push_back(v);
-        g[v].push_back(u);
-    }
-
-    dfs(1,0);
-
-    vector<int> count(n+1);
     for(int i=1;i<=n;i++){
-        cout<<i<<" "<<dist[i]<<'\n';
-        count[dist[i]]++;
+        pref[i] = pref[i-1];
+
+        pref[i][s[i-1] - 'a']++;
     }
 
-    int mx = 0;
-    for(int i=0;i<n;i++){
-        // cout<<i<<" "<<count[i]<<'\n';
-    }
+    int q; cin>>q;
 
-    cout<<mx<<'\n';
+    while(q--){
+        int l,r; cin>>l>>r;
+
+        if(l == r || s[l-1] != s[r-1]){
+            cout<<"Yes\n";
+        }else{
+            int c = 0;
+
+            for(int i=0;i<26;i++){
+                if(pref[r][i] - pref[l-1][i] > 0) c++;
+            }
+
+            if(c >= 3){
+                cout<<"Yes\n";
+            }else{
+                cout<<"No\n";
+            }
+        }
+    }
 }
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     
-    int t; cin>>t;
-    while(t--) solve();
+    solve();
 
     return 0;
 }
