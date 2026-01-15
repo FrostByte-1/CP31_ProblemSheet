@@ -65,7 +65,7 @@ public:
 #define ll long long 
 #define all(x) (x).begin(),(x).end()
 
-const ll mod = 1e9+7;
+const ll mod = 1e9+7; //998244353;
 ll pow(ll base, ll exp, ll mod) {
     ll result = 1;
     while (exp > 0) {
@@ -90,14 +90,41 @@ ll pow(ll base, ll exp, ll mod) {
 /*
 
 */
+const int N = 10;
+vector<int> v(N);
+
+void comp(){
+    v[0] = 1;
+    v[1] = 3;
+
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            for(int k=0;k<10;k++){
+                if(i + j + k <= 9 && i + j + k >= 2){
+                    v[i+j+k]++;
+                }
+            }
+        }
+    }
+}
 
 void solve(){
+    int n; cin>>n;
 
+    ll ans = 1;
+    while(n > 0){
+        ans *= v[n%10];
+        n /= 10;
+    }
+
+    cout<<ans<<'\n';
 }
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
+
+    comp();
     
     int t; cin>>t;
     while(t--) solve();
