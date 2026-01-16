@@ -1,0 +1,1 @@
+{"name":"Local: P3","url":"d:\\C++ projects\\CP31\\1600\\P3.cpp","tests":[{"id":1768526797497,"input":"3\ncab\n6\nabcd\n9\nx\n1\n","output":"abx"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C++ projects\\CP31\\1600\\P3.cpp","group":"local","local":true}
